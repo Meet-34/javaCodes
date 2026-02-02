@@ -187,12 +187,49 @@ System.in -> System input stream */
 
 //! Find max using ternary operator
 
-public class findMax{
+// public class findMax{
+//     public static void main(String args[]){
+//         int a = 52;
+//         int b = 11;
+//         int c = 35;
+//         int max = (a > b && a > c) ? a : (b > a && b > c) ? b : c;
+//         System.out.println(max);
+//     }
+// }
+
+//! Types of Loops
+/* While Loop - Entry control loop, doesn't execute if the condition is false
+It consists of initialization of variable, condition - checked at the entry of body of the while loop, update statement - without which the loop runs for infinite times */
+
+/* do while Loop - Exit control loop, executes at least once ven if the condition is false */
+
+/* for Loop - for(initialization; condition; updation){
+    Block of code - Body of for Loop} */
+
+//! Control flow - Continue, break
+/* Break - exits the loop completely. Break can be used in three situations: 
+-> Loops
+-> Switch
+-> goto statement */
+
+/* Continue - skips the current iteration, control goes to next iteration */
+
+//! Fibonacci series
+
+import java.util.Scanner;
+public class fibo{
     public static void main(String args[]){
-        int a = 52;
-        int b = 11;
-        int c = 35;
-        int max = (a > b && a > c) ? a : (b > a && b > c) ? b : c;
-        System.out.println(max);
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+
+        int a = 0, b = 1, c;
+        System.out.print(0 + " ");
+        for(int i = 0; i < x; i++){
+            c = a + b;
+            a = b;
+            b = c;
+            System.out.print(c + " ");
+        }
+        sc.close();
     }
 }
