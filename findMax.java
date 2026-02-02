@@ -189,9 +189,9 @@ System.in -> System input stream */
 
 public class findMax{
     public static void main(String args[]){
-        int a = 5;
+        int a = 52;
         int b = 11;
-        int c = 3;
+        int c = 35;
         int max = (a > b && a > c) ? a : (b > a && b > c) ? b : c;
         System.out.println(max);
     }
