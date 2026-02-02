@@ -185,3 +185,14 @@ System.in -> System input stream */
 //     }
 // }
 
+//! Find max using ternary operator
+
+public class findMax{
+    public static void main(String args[]){
+        int a = 5;
+        int b = 11;
+        int c = 3;
+        int max = (a > b && a > c) ? a : (b > a && b > c) ? b : c;
+        System.out.println(max);
+    }
+}
