@@ -216,20 +216,40 @@ It consists of initialization of variable, condition - checked at the entry of b
 
 //! Fibonacci series
 
+// import java.util.Scanner;
+// public class fibo{
+//     public static void main(String args[]){
+//         Scanner sc = new Scanner(System.in);
+//         int x = sc.nextInt();
+
+//         int a = 0, b = 1, c;
+//         System.out.print(0 + " ");
+//         for(int i = 0; i < x; i++){
+//             c = a + b;
+//             a = b;
+//             b = c;
+//             System.out.print(c + " ");
+//         }
+//         sc.close();
+//     }
+// }
+
+//! Reverse the digits of a number
+
 import java.util.Scanner;
-public class fibo{
+public class revNumber{
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        int x = sc.nextInt();
+        int num = sc.nextInt();
+        int rev = 0;
 
-        int a = 0, b = 1, c;
-        System.out.print(0 + " ");
-        for(int i = 0; i < x; i++){
-            c = a + b;
-            a = b;
-            b = c;
-            System.out.print(c + " ");
+        while(num != 0){
+            int digit = num % 10;
+            rev = rev * 10 + digit;
+            num = num / 10;
         }
+        System.out.println("The number after reversing: " + rev);
         sc.close();
     }
 }
+
