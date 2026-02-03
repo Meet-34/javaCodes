@@ -236,19 +236,42 @@ It consists of initialization of variable, condition - checked at the entry of b
 
 //! Reverse the digits of a number
 
+// import java.util.Scanner;
+// public class revNumber{
+//     public static void main(String args[]){
+//         Scanner sc = new Scanner(System.in);
+//         int num = sc.nextInt();
+//         int rev = 0;
+
+//         while(num != 0){
+//             int digit = num % 10;
+//             rev = rev * 10 + digit;
+//             num = num / 10;
+//         }
+//         System.out.println("The number after reversing: " + rev);
+//         sc.close();
+//     }
+// }
+
+//! Pattern 1
+
 import java.util.Scanner;
-public class revNumber{
+public class p1{
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        int num = sc.nextInt();
-        int rev = 0;
+        int n = sc.nextInt();
 
-        while(num != 0){
-            int digit = num % 10;
-            rev = rev * 10 + digit;
-            num = num / 10;
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                if(i == n/2 || j == n/2){
+                    System.out.print("* ");
+                }
+                else{
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
         }
-        System.out.println("The number after reversing: " + rev);
         sc.close();
     }
 }
