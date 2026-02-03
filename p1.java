@@ -255,6 +255,29 @@ It consists of initialization of variable, condition - checked at the entry of b
 
 //! Pattern 1
 
+// import java.util.Scanner;
+// public class p1{
+//     public static void main(String args[]){
+//         Scanner sc = new Scanner(System.in);
+//         int n = sc.nextInt();
+
+//         for(int i=0; i<n; i++){
+//             for(int j=0; j<n; j++){
+//                 if(i == n/2 || j == n/2){
+//                     System.out.print("* ");
+//                 }
+//                 else{
+//                     System.out.print("  ");
+//                 }
+//             }
+//             System.out.println();
+//         }
+//         sc.close();
+//     }
+// }
+
+//! Pattern 2
+
 import java.util.Scanner;
 public class p1{
     public static void main(String args[]){
@@ -263,7 +286,7 @@ public class p1{
 
         for(int i=0; i<n; i++){
             for(int j=0; j<n; j++){
-                if(i == n/2 || j == n/2){
+                if(i == j || i+j == n-1){
                     System.out.print("* ");
                 }
                 else{
@@ -275,4 +298,3 @@ public class p1{
         sc.close();
     }
 }
-
