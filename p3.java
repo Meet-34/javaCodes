@@ -270,54 +270,54 @@ It consists of initialization of variable, condition - checked at the entry of b
 
 //! Banking menu 
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
-public class Bank {
-    public static void main(String args[]){
-        System.out.println("Welcome to xyz bank: ");
-        System.out.println("Press 1: Deposit, Press 2: Withdraw, Press 3: Check Balance, Press 4: Exit");
-        Scanner sc = new Scanner(System.in);
-        double bal = 18000;
-        int x;
-        do{
-            x = sc.nextInt();
-            switch(x){
-                case 1: 
-                    System.out.print("Please enter deposit amount: ");
-                    double amt = sc.nextDouble();
-                    bal += amt;
-                    System.out.println("Amount deposited");
-                    break;
+// public class Bank {
+//     public static void main(String args[]){
+//         System.out.println("Welcome to xyz bank: ");
+//         System.out.println("Press 1: Deposit, Press 2: Withdraw, Press 3: Check Balance, Press 4: Exit");
+//         Scanner sc = new Scanner(System.in);
+//         double bal = 18000;
+//         int x;
+//         do{
+//             x = sc.nextInt();
+//             switch(x){
+//                 case 1: 
+//                     System.out.print("Please enter deposit amount: ");
+//                     double amt = sc.nextDouble();
+//                     bal += amt;
+//                     System.out.println("Amount deposited");
+//                     break;
 
-                case 2:
-                    System.out.print("Please enter amount to withdraw: ");
-                    double wdraw = sc.nextDouble();
-                    if(bal > wdraw){
-                        bal -= wdraw;
-                        System.out.println("Amount has been successfully withdraw, you may check the balance");
-                    }
-                    else{
-                        System.out.println("Insufficient balance");
-                    }
-                    break;
+//                 case 2:
+//                     System.out.print("Please enter amount to withdraw: ");
+//                     double wdraw = sc.nextDouble();
+//                     if(bal > wdraw){
+//                         bal -= wdraw;
+//                         System.out.println("Amount has been successfully withdraw, you may check the balance");
+//                     }
+//                     else{
+//                         System.out.println("Insufficient balance");
+//                     }
+//                     break;
             
-                case 3: 
-                    System.out.println("Current balance: " + bal);
-                    break;
+//                 case 3: 
+//                     System.out.println("Current balance: " + bal);
+//                     break;
 
-                case 4:
-                    System.out.println("Thank you for using our bank");
-                    break;
+//                 case 4:
+//                     System.out.println("Thank you for using our bank");
+//                     break;
 
-                default: 
-                    System.out.println("Invalid input");
-            }
-        }while(x != 4);
-        sc.close();
-    }
-}
+//                 default: 
+//                     System.out.println("Invalid input");
+//             }
+//         }while(x != 4);
+//         sc.close();
+//     }
+// }
 
-// ! Pattern 1
+//! Pattern 1
 
 // import java.util.Scanner;
 // public class p1{
@@ -340,7 +340,7 @@ public class Bank {
 // }
 // }
 
-// ! Pattern 2
+//! Pattern 2
 
 // import java.util.Scanner;
 // public class p1{
@@ -363,4 +363,28 @@ public class Bank {
 // }
 // }
 
-// ! Pattern 3
+//! Pattern 3
+
+import java.util.Scanner;
+public class p3{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+
+        for(int i=1; i<=x; i++){
+            for(int j=1; j<=i; j++){
+                System.out.print("* ");
+            }
+
+            for(int j=1; j <= (2*x - 2*i); j++){
+                System.out.print("  ");
+            }
+
+            for(int j=1; j<=i; j++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        sc.close();
+    }
+}
