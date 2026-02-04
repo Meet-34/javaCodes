@@ -365,26 +365,94 @@ It consists of initialization of variable, condition - checked at the entry of b
 
 //! Pattern 3
 
-import java.util.Scanner;
+// import java.util.Scanner;
+// public class p3{
+//     public static void main(String args[]){
+//         Scanner sc = new Scanner(System.in);
+//         int x = sc.nextInt();
+
+//         for(int i=1; i<=x; i++){
+//             for(int j=1; j<=i; j++){
+//                 System.out.print("* ");
+//             }
+
+//             for(int j=1; j <= (2*x - 2*i); j++){
+//                 System.out.print("  ");
+//             }
+
+//             for(int j=1; j<=i; j++){
+//                 System.out.print("* ");
+//             }
+//             System.out.println();
+//         }
+//         sc.close();
+//     }
+// }
+
+//! Pattern 4
+
+// import java.util.Scanner;
+// public class p3{
+//     public static void main(String args[]){
+//         Scanner sc = new Scanner(System.in);
+//         int x = sc.nextInt();
+
+//         for(int i=0; i<=x; i++){
+//             for(int j=1; j<=x-i; j++){
+//                 System.out.print("  ");
+//             }
+
+//             for(int j=1; j <= (2*i + 1); j++){
+//                 System.out.print("* ");
+//             }
+
+//             for(int j=1; j<=x-i; j++){
+//                 System.out.print("  ");
+//             }
+//             System.out.println();
+//         }
+//         sc.close();
+//     }
+// }
+
+//! 2D Matrix 
+
+// public class p3{
+//     public static void main(String args[]){
+//         int[][]matrix = new int[5][6];
+//         int k = 1;
+//         for(int i=0; i<5; i++){
+//             for(int j=0; j<6; j++){
+//                 matrix[i][j] = k++;
+//                 System.out.print(matrix[i][j] + " ");
+//             }
+//             System.out.println();
+//         }
+//     }
+// }
+
 public class p3{
     public static void main(String args[]){
-        Scanner sc = new Scanner(System.in);
-        int x = sc.nextInt();
-
-        for(int i=1; i<=x; i++){
-            for(int j=1; j<=i; j++){
-                System.out.print("* ");
+        int[][]arr = new int[5][6];
+        int x = 1;
+        for(int i=0; i<6; i++){
+            if(i % 2 == 0){
+                for(int j=0; j<5; j++){
+                    arr[j][i] = x++;
+                }
             }
-
-            for(int j=1; j <= (2*x - 2*i); j++){
-                System.out.print("  ");
+            else{
+                for(int j=5-1; j>=0; j--){
+                    arr[j][i] = x++;
+                }
             }
+        }
 
-            for(int j=1; j<=i; j++){
-                System.out.print("* ");
+        for(int i=0; i<5; i++){
+            for(int j=0; j<6; j++){
+                System.out.print(arr[i][j] + " ");
             }
             System.out.println();
         }
-        sc.close();
     }
 }
