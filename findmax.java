@@ -431,28 +431,78 @@ It consists of initialization of variable, condition - checked at the entry of b
 //     }
 // }
 
-public class p3{
-    public static void main(String args[]){
-        int[][]arr = new int[5][6];
-        int x = 1;
-        for(int i=0; i<6; i++){
-            if(i % 2 == 0){
-                for(int j=0; j<5; j++){
-                    arr[j][i] = x++;
-                }
-            }
-            else{
-                for(int j=5-1; j>=0; j--){
-                    arr[j][i] = x++;
-                }
-            }
-        }
+// public class p3{
+//     public static void main(String args[]){
+//         int[][]arr = new int[5][6];
+//         int x = 1;
+//         for(int i=0; i<6; i++){
+//             if(i % 2 == 0){
+//                 for(int j=0; j<5; j++){
+//                     arr[j][i] = x++;
+//                 }
+//             }
+//             else{
+//                 for(int j=5-1; j>=0; j--){
+//                     arr[j][i] = x++;
+//                 }
+//             }
+//         }
 
-        for(int i=0; i<5; i++){
-            for(int j=0; j<6; j++){
-                System.out.print(arr[i][j] + " ");
+//         for(int i=0; i<5; i++){
+//             for(int j=0; j<6; j++){
+//                 System.out.print(arr[i][j] + " ");
+//             }
+//             System.out.println();
+//         }
+//     }
+// }
+
+//! Varargs
+/* There can be only one varargs argument
+It should be the last argument in the function */
+
+// public class varargs{
+//     int add(int... arr){
+//         int sum = 0;
+//         for(int x : arr){
+//             sum += x;
+//         }
+//         return sum;
+//     }
+
+//     public static void main(String[] args) {
+//         varargs obj = new varargs(); 
+//         int result = obj.add(1, 2, 3, 4, 5);
+//         System.out.println(result);
+//     }
+// }
+
+//! Enums
+/* Enum is a special class that represents group of constants
+We can attach data to enum using fields and constructors */
+//Syntax of enum: 
+// enum priority{
+//     low, high, medium
+// }
+
+//! Varargs - find max element
+
+public class findmax{
+    int max(int...arr){
+        int max = 0;
+        for(int x: arr){
+            if(x > max){
+                max = x;
             }
-            System.out.println();
         }
+        return max;
+    }
+
+    public static void main(String args[]){
+        findmax fm = new findmax();
+        int result = fm.max(23, 25, 27, 45, 56);
+        System.out.println(result);
     }
 }
+
+
