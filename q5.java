@@ -562,19 +562,57 @@ If any constructor is defined manually, compiler will not create the default no-
 
 //? Constructor chaining using this - Create a class where the constructor uses this to call another constructor
 
-public class q3{
+// public class q3{
+//     public static void main(String args[]){
+//         class1 c = new class1();
+//     }
+// }
+
+// class class1{
+//     class1(){
+//         this(10);
+//         System.out.println("Hi, this is class 1");
+//     }
+
+//     class1(int x){
+//         System.out.println("Hi, this is class 2");
+//     }
+// }
+
+//? Static Block - Prove that static block runs before the constructor by printing messages
+
+// public class q4{
+//     public static void main(String args[]){
+//         class1 c = new class1();
+//     }
+// }
+
+// class class1{
+//     class1(){
+//         System.out.println("Hi, constructor this side!");
+//     }
+
+//     static{
+//         System.out.println("Hi, static block this side!");
+//     }
+// }
+
+//? Object count - Use a static variable count to track how many objects of a class have been created
+
+public class q5{
     public static void main(String args[]){
-        class1 c = new class1();
+        class1 c1 = new class1();
+        class1 c2 = new class1();
+        class1 c3 = new class1();
+        class1 c4 = new class1();   
+        System.out.println("Total no. of objects created: " + class1.count);
     }
 }
 
 class class1{
-    class1(){
-        this(10);
-        System.out.println("Hi, this is class 1");
-    }
 
-    class1(int x){
-        System.out.println("Hi, this is class 2");
+    static int count = 0;
+    class1(){
+        count++;
     }
 }
