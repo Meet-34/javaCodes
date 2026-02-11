@@ -487,22 +487,94 @@ We can attach data to enum using fields and constructors */
 
 //! Varargs - find max element
 
-public class findmax{
-    int max(int...arr){
-        int max = 0;
-        for(int x: arr){
-            if(x > max){
-                max = x;
-            }
-        }
-        return max;
-    }
+// public class findmax{
+//     int max(int...arr){
+//         int max = 0;
+//         for(int x: arr){
+//             if(x > max){
+//                 max = x;
+//             }
+//         }
+//         return max;
+//     }
 
+//     public static void main(String args[]){
+//         findmax fm = new findmax();
+//         int result = fm.max(23, 25, 27, 45, 56);
+//         System.out.println(result);
+//     }
+// }
+
+//! Getter & Setter - Read-only access and Write-only access(with validation) respectively
+
+//! Constructor
+/* Types of constructor - Default constructor, parameterized constructor. 
+There is no copy constructor in java. But we can create our own copy constructor. 
+If any constructor is defined manually, compiler will not create the default no-arg constructor. */
+
+//? Bank Account - Create a class with static bankname and instance balance. See how changing bankname affects all objects
+
+// public class q1{
+//     public static void main(String args[]){
+//         bankname obj1 = new bankname();
+//         bankname obj2 = new bankname();
+//         obj1.display();
+//         obj2.display();
+
+//         obj1.bank = "xyz";
+//         obj1.display();
+//         obj2.display();
+//     }
+// }
+
+// class bankname{
+//     static String bank = "Axis";
+
+//     void display(){
+//         System.out.println("Bank: " + bank);
+//     }
+// }
+
+//? Overloading - Create a calculator class with add(int, int), add(double, double), add(int, int, int)
+
+// public class q2{
+//     public static void main(String args[]){
+//         calculator c = new calculator();
+//         c.add(12, 15);
+//         c.add(5, 8, 11);
+//         c.add(12.56, 2.11);
+//     }
+// }
+
+// class calculator{
+//     void add(int a, int b){
+//         System.out.println("a + b = " + (a+b));
+//     }
+
+//     void add(double a, double b){
+//         System.out.println("a + b = " + (a+b));
+//     }
+
+//     void add(int a, int b, int c){
+//         System.out.println("a + b + c = " + (a+b+c));
+//     }
+// }
+
+//? Constructor chaining using this - Create a class where the constructor uses this to call another constructor
+
+public class q3{
     public static void main(String args[]){
-        findmax fm = new findmax();
-        int result = fm.max(23, 25, 27, 45, 56);
-        System.out.println(result);
+        class1 c = new class1();
     }
 }
 
+class class1{
+    class1(){
+        this(10);
+        System.out.println("Hi, this is class 1");
+    }
 
+    class1(int x){
+        System.out.println("Hi, this is class 2");
+    }
+}
