@@ -1,4 +1,4 @@
-// public class Practice{
+
 //     public static void main(String [] args){
 //         System.out.println("Hello World" + " " + args[0] + " " + args[1]);
 //     }
@@ -509,7 +509,7 @@ We can attach data to enum using fields and constructors */
 
 //! Constructor
 /* Types of constructor - Default constructor, parameterized constructor. 
-There is no copy constructor in java. But we can create our own copy constructor. 
+There is no copy constructor in java. But we can create our own copy constructor manually. 
 If any constructor is defined manually, compiler will not create the default no-arg constructor. */
 
 //? Bank Account - Create a class with static bankname and instance balance. See how changing bankname affects all objects
@@ -599,20 +599,91 @@ If any constructor is defined manually, compiler will not create the default no-
 
 //? Object count - Use a static variable count to track how many objects of a class have been created
 
-public class q5{
-    public static void main(String args[]){
-        class1 c1 = new class1();
-        class1 c2 = new class1();
-        class1 c3 = new class1();
-        class1 c4 = new class1();   
-        System.out.println("Total no. of objects created: " + class1.count);
-    }
-}
+// public class q5{
+//     public static void main(String args[]){
+//         class1 c1 = new class1();
+//         class1 c2 = new class1();
+//         class1 c3 = new class1();
+//         class1 c4 = new class1();   
+//         System.out.println("Total no. of objects created: " + class1.count);
+//     }
+// }
 
-class class1{
+// class class1{
 
-    static int count = 0;
-    class1(){
-        count++;
-    }
-}
+//     static int count = 0;
+//     class1(){
+//         count++;
+//     }
+// }
+
+//! Overview 
+/* instance initializer block - runs every time an obj is created 
+ static block - runs only once */
+
+ /* what is an instance variable?
+ A variable declared inside a class but outside any method */
+
+//  Constructors cannot be static as it will get confused as to which object to initialize with the values
+
+// Constructor chaining -> Calling one constructor from another 
+
+//! String - sequence of characters & it is immutable (why immutable? Because it creates a new object instead of changing the old one)
+
+// There is no concept of "call by reference" in java, even the address is passed 'as a value' for performing operations that might look like call by reference
+
+// Wrapper classes create diff memory space object if outside range(-128 to 127), therefore they wont be equal using (==)
+// Default access modifier -> package-private 
+
+//? ~5 -> take 2's complement(flip bits and then until first 1 copy values from right then flip the bits and if the leftmost bit is 1 then ans is negative otherwise positive)
+
+//? java.lang.String -> automatically imported, cannot be inherited 
+
+// public class st{
+//     public static void main(String args[]){
+//         String s = "Java";
+//         s = s.concat(" World");                        
+//         //Java remains the same but at some other address meanwhile java world is at another memory location
+//         System.out.println(s);
+//     }
+// }
+
+//! Two ways to create a string: (1) String s = "Hellow" (2) String s2 = new String("Hellow") 
+// .intern() is used to refer to the address of that specific string in the String constant pool instead of the heap address 
+// Syntax -> String s = new String("Hellow").intern();
+
+//! String Builder - sequence of characters but mutable 
+// It direcly changes the content of the same object instead of creating new objects 
+// Same object -> faster execution -> lesser memory 
+// java.lang.StringBuilder , automatically imported 
+// java.util.* -> imports all the modules 
+
+/* Internal working of String Builder -> 
+resizable char array, default capacity -> 16 characters */ 
+
+// StringBuilder s = new StringBuilder(1000)       // Here, 1000 is capacity, not size or length
+
+//? String builder uses a formula of 2n + 2 whenever its capacity is full, it automatically adjust itself in 2n+2 form where n is its own capacity 
+
+//! Collection - 
+
+//? Arrays.fill(arr, 42);                         //?Where arr is the name of the 1D Array and we want to insert 42 at every index of the array
+
+//? Arrays.sort(arr);
+
+//? Arrays.binarySearch(arr, 3);                  //? arr is the array name and it should be sorted 
+
+//! To copy the elements of one array to another array:
+
+//! copyOf method 
+
+//? int newArr = Arrays.copyOf(arr, 10);          //? copyof creates a new array of size 10 and copies the elements of 'arr' into that array and returns the reference of that newly created array 
+
+//! clone - method of array not Array 
+
+//? int [] newarr = oldarr.clone();               //? No need to specify size here 
+
+//! System.arraycopy(oldArray, startindex, newArray, startindexx, oldArray.length) -> System.arraycopy(arr, 0, newArr, 0, arr.length)
+
+//? doesn't return reference
+
