@@ -1,3 +1,4 @@
+//! UNIT - 1
 
 //     public static void main(String [] args){
 //         System.out.println("Hello World" + " " + args[0] + " " + args[1]);
@@ -200,7 +201,7 @@ System.in -> System input stream */
 /* While Loop - Entry control loop, doesn't execute if the condition is false
 It consists of initialization of variable, condition - checked at the entry of body of the while loop, update statement - without which the loop runs for infinite times */
 
-/* do while Loop - Exit control loop, executes at least once ven if the condition is false */
+/* do while Loop - Exit control loop, executes at least once even if the condition is false */
 
 /* for Loop - for(initialization; condition; updation){
     Block of code - Body of for Loop} */
@@ -457,6 +458,8 @@ It consists of initialization of variable, condition - checked at the entry of b
 //     }
 // }
 
+//! UNIT - 2
+
 //! Varargs
 /* There can be only one varargs argument
 It should be the last argument in the function */
@@ -635,7 +638,7 @@ If any constructor is defined manually, compiler will not create the default no-
 // Wrapper classes create diff memory space object if outside range(-128 to 127), therefore they wont be equal using (==)
 // Default access modifier -> package-private 
 
-//? ~5 -> take 2's complement(flip bits and then until first 1 copy values from right then flip the bits and if the leftmost bit is 1 then ans is negative otherwise positive)
+//? ~5 -> take 2's complement(flip bits and then until first 1 copy values from right then flip the bits and if the leftmost bit is 1 then ans is negative otherwise positive) -> SHORTCUT -> ~n = -(n+1)
 
 //? java.lang.String -> automatically imported, cannot be inherited 
 
@@ -686,4 +689,79 @@ resizable char array, default capacity -> 16 characters */
 //! System.arraycopy(oldArray, startindex, newArray, startindexx, oldArray.length) -> System.arraycopy(arr, 0, newArr, 0, arr.length)
 
 //? doesn't return reference
+
+//? To print normal dot in java - "\\."
+
+//! INHERITANCE 
+//? Example of inheritance : 
+// class Parent{
+//     void show(){
+//         System.out.println("Hello World");
+//     }
+// }
+
+// class Child extends Parent{
+
+// }
+
+// public class inhe{
+//     public static void main(String args[]){
+//         Child c = new Child();
+//         c.show();
+//     }
+// }
+
+//? extends -> a keyword
+
+//! Purpose of inheritance: 
+/* 
+1-> Code reusability 
+2-> Method overriding(runtine polymorphism) 
+3-> Logical heirarchy 
+4-> Cleaner design 
+5-> Maintainability 
+*/ 
+
+//? TYPES -> Single, multilevel, heirarchical inheritance 
+
+//? super() -> is used to call the parent constructor -> implicit 
+//? use super() to pass the arguments to the parent class constructor and super must be the first statement 
+//? call parent method     super.show()
+//? access parent members  super.x
+
+//? final class - that class cannot be inherited 
+//? final method - that method cannot be overridden 
+//? final variable - cannot be changed i.e constant 
+
+//? instanceOf operator -> used to check type
+
+/* if(a instanceOf String){
+
+} */ 
+
+//? it goes upwards in inheritance, may return true if the instanceOf matches the parent classes type 
+ 
+// class Animal{
+//     void eat(){
+//         System.out.println("Animal eating");
+//     }
+// }
+
+// class Dog extends Animal{
+//     void eat(){
+//         System.out.println("Dog eating");
+//     }
+
+//     void sound(){
+//         System.out.println("Bow Bow");
+//     }
+// }
+
+// public class latebinding{
+//     public static void main(String args[]){
+//         Animal a = new Dog();
+//         a.eat();
+//         //? a.sound();                                  Not allowed, compiler checks reference type, not the object type 
+//     }
+// }
 
