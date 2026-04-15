@@ -1123,19 +1123,46 @@ non-static, inside method, container or any block
 
 //! Bounded Types 
 
-public class ex7{
-    public static void main(String[] args){
-        Box<Integer> ob = new Box<>(10);
-        System.out.println(ob.get());
-    }
-}
+// public class ex7{
+//     public static void main(String[] args){
+//         Box<Integer> ob = new Box<>(10);
+//         System.out.println(ob.get());
+//     }
+// }
 
-class Box<T extends Number>{
-    T val;
-    Box(T n){
-        val = n;
-    }
-    T get(){
-        return val;
-    }
-}
+// class Box<T extends Number>{
+//     T val;
+//     Box(T n){
+//         val = n;
+//     }
+//     T get(){
+//         return val;
+//     }
+// }
+
+//! Wild card 
+
+// public class ex8{
+//     static void print(Box<?> ob){
+//         System.out.println(ob.get());
+//     }
+//     public static void main(String[] args){
+//         Box<Integer> ob = new Box<>(10);
+//         print(ob);
+//         Box<String> ob2 = new Box<>("Hello");
+//         print(ob2);
+
+//     }
+// }
+
+// class Box<T>{
+//     T val;
+//     Box(T n){
+//         val = n;
+//     }
+
+//     T get(){
+//         return val;
+//     }
+// }
+
