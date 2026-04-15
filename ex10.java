@@ -1168,12 +1168,35 @@ non-static, inside method, container or any block
 
 //! Wild card - Upper
 
-public class ex8{
-    static void print(Box<? extends Number> ob){
+// public class ex9{
+//     static void print(Box<? extends Number> ob){
+//         System.out.println(ob.get());
+//     }
+//     public static void main(String[] args){
+//         Box<Integer> ob = new Box<>(10);
+//         print(ob);
+//     }
+// }
+
+// class Box<T>{
+//     T val;
+//     Box(T n){
+//         val = n;
+//     }
+
+//     T get(){
+//         return val;
+//     }
+// }
+
+//! Wild card - Lower 
+
+public class ex10{
+    static void print(Box<? super Integer> ob){
         System.out.println(ob.get());
     }
     public static void main(String[] args){
-        Box<Integer> ob = new Box<>(10);
+        Box<Number> ob = new Box<>(10);
         print(ob);
     }
 }
