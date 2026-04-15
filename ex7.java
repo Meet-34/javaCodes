@@ -1079,16 +1079,58 @@ non-static, inside method, container or any block
 // }
 
 //! Generic class
-public class ex5{
+// public class ex5{
+//     public static void main(String[] args){
+//         Box<Integer> ob = new Box<>(10);
+//         System.out.println(ob.get());
+//         Box<String> ob1 = new Box<>("Hello");
+//         System.out.println(ob1.get());
+//     }
+// }
+
+// class Box<T>{
+//     T val;
+//     Box(T n){
+//         val = n;
+//     }
+//     T get(){
+//         return val;
+//     }
+// }
+
+// public class ex6{
+//     public static void main(String[] args){
+//         Box<Integer, String> ob = new Box<>(10, "Hello");
+//         System.out.println(ob.getT());
+//         System.out.println(ob.getU());
+//     }
+// }
+
+// class Box<T, U>{
+//     T val;
+//     U val2;
+//     Box(T n, U nn){
+//         val = n;
+//         val2 = nn;
+//     }
+//     T getT(){
+//         return val;
+//     }
+//     U getU(){
+//         return val2;
+//     }
+// }
+
+//! Bounded Types 
+
+public class ex7{
     public static void main(String[] args){
         Box<Integer> ob = new Box<>(10);
         System.out.println(ob.get());
-        Box<String> ob1 = new Box<>("Hello");
-        System.out.println(ob1.get());
     }
 }
 
-class Box<T>{
+class Box<T extends Number>{
     T val;
     Box(T n){
         val = n;
