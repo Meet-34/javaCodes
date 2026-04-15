@@ -1,4 +1,9 @@
-//! UNIT - 1
+
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
+
+
 
 //     public static void main(String [] args){
 //         System.out.println("Hello World" + " " + args[0] + " " + args[1]);
@@ -740,6 +745,7 @@ resizable char array, default capacity -> 16 characters */
 } */ 
 
 //? it goes upwards in inheritance, may return true if the instanceOf matches the parent classes type 
+//? Variable are resolved during compile time so reference type variable is called, and pbject type method is called
  
 // class Animal{
 //     void eat(){
@@ -765,3 +771,316 @@ resizable char array, default capacity -> 16 characters */
 //     }
 // }
 
+//? overriding toString() method (method present in object class that is included explicitly in the class as object class is the top-most(root) class) 
+//? Inside object class, == compares references. Check for object type while overloading. if called for different reference object, doesn't work. returns false.
+// class Animal{
+//     public String toString(){
+//         return "Animal class object";
+//     }
+// }
+
+// class Dog extends Animal{
+//     // public String toString(){
+//     //     return "Dog class object";
+//     // }
+// }
+
+// public class over{
+//     public static void main(String args[]){
+//         Dog d = new Dog();
+//         System.out.print(d);
+//     }
+// }
+
+//? Abstract class 
+/* We cannot create an object of an abstract class. It is declared using an 'abstract' keyword. 
+It is a class that has atleast one abstract method. 
+Abstract class can contain : 
+abstract method, normal method, variables, constructors, static */
+
+//? Interface 
+/* We cannot write a constructor inside interface. We cannot write a body inside interface We cannot create an object of interface. 
+All interface variables are automatically public static final 
+Methods become abstract and public 
+
+After JAVA 8, We can give body to some methods but the method should have a default keyword and it is not mandatory to define that function inside the child classes, 
+Child classes can overwrite the default method that is inside the interface 
+To clearly declare which class method to call in child class write -> classname.super().methodname() */
+
+
+// abstract class animal{
+//     animal(){
+//         System.out.println("Abstract class constructor");
+//     }
+//     abstract void sound();
+// }
+
+// class dog extends animal{
+//     dog(){
+//         System.out.println("Subclass constructor");
+//     }
+//     void sound(){
+//         System.out.println("Bark");
+//     }
+// }
+
+// public class abs{
+//     public static void main(String args[]){
+//         dog d = new dog();
+//         d.sound();
+//     }
+// }
+
+// interface core{
+//     void wheels();
+// }
+
+// interface extrafeatures{
+//     void color();
+// }
+
+// class car implements core, extrafeatures{
+//     public void wheels(){
+//         System.out.println("4 Wheels");
+//     }
+
+//     public void color(){
+//         System.out.println("Black");
+//     }
+// }
+
+// public class inte{
+//     public static void main(String args[]){
+//         car c = new car();
+//         c.wheels();
+//         c.color();
+//     }
+// }
+
+// interface animal{
+//     static void makeSound(){
+//         System.out.println("Body of static function 'make sound'");
+//     }
+// }
+
+// class dog implements animal{}
+
+// class cat implements animal{}
+
+// public class intef{
+//     public static void main(String args[]){
+//         animal.makeSound();
+//     }
+// }
+
+/* Non-Static nested classes 
+1) -> Member-inner class
+non-static, inside outer class, outside methods 
+It is associated with the outer class object
+"Outer obj = new Outer()
+Outer.inner obj2 = obj.new inner()"
+
+2) -> Local-inner class
+non-static, inside method, container or any block
+
+*/
+
+//! Anonymous inner class -> instead of implementing interface, we use an anonymous class
+
+// public class anin{
+//     public static void main(String[] args) {
+//         animal a = new animal(){
+//             public void sound(){
+//                 System.out.println("Bark");
+//             }
+//         };
+//         a.sound();
+//     }
+// }
+
+// interface animal{
+//     void sound();
+// }
+
+//! Lambda for sum of two numbers 
+
+// public class su{
+//     public static void main(String args[]){
+//         sumint obj = (a, b) -> a + b;
+
+//         int result = obj.sum(5, 8);
+//         System.out.println("Sum: " + result);
+//     }
+// }
+
+// interface sumint{
+//     int sum(int a, int b);
+// }
+
+
+//! Exception handling 
+
+// public class CustomResources{
+//     public static void main(String args[]){
+//         try(cusRes cr = new cusRes()){
+//             System.out.println("Reading and writing files");
+//         }
+//         catch(Exception e){
+//             System.out.println("Exception occured!");
+//         }
+//     }
+// }
+
+// class cusRes implements AutoCloseable{
+//     public void close(){
+//         System.out.println("Closing files");
+//     }
+// }
+
+// public class CustomResources2{
+//     public static void main(String args[]){
+//         try(cusRes cr = new cusRes()){
+//             System.out.println("Reading and writing files");
+//         }
+//         catch(Exception e){
+//             System.out.println("Exception occured!");
+//         }
+//     }
+// }
+
+// class cusRes implements AutoCloseable{
+//     cusRes(){
+//         throw new ArithmeticException("Exception occured!");
+//     }
+//     public void close(){
+//         System.out.println("Closing files");
+//     }
+// }
+
+// public class CustomResources3{
+//     public static void main(String args[]){
+//         try(cusRes cr = new cusRes()){
+//             System.out.println("Reading and writing files");
+//             throw new myException();
+//         }
+//         catch(myException e){
+//             System.out.println(e.getMessage());
+//         }
+//         catch(Exception e){
+//             System.out.println("Exception occured!");
+//         }
+//     }
+// }
+
+// class myException extends Exception{
+//     public String getMessage(){
+//         return "Custom Exception has occured!";
+//     }
+// }
+
+// class cusRes implements AutoCloseable{
+//     // cusRes(){
+//     //     throw new ArithmeticException("Exception occured!");
+//     // }
+//     public void close(){
+//         System.out.println("Closing files");
+//     }
+// }
+
+// public class Assertions{
+//     public static void main(String args[]){
+//         double side = -0.5;
+
+//         assert(side >= 0) : "Side length must be positive! Found: " + side;
+
+//         System.out.println("Area of the square is: " + side*side);
+//     }
+
+//     static void sound(){
+//         System.out.println("Sound function!");
+//     }
+// }
+
+// import java.io.*;
+// public class ex1{
+//     public static void main(String[] args) {
+//         try {
+//             // FileOutputStream fos = new FileOutputStream("a.txt");
+//             // String s = "Hello World!";
+//             // fos.write(s.getBytes());
+//             // fos.close();
+//             FileInputStream fis = new FileInputStream("a.txt");
+//             int data;
+//             while((data = fis.read()) != -1){
+//                 System.out.print((char)data);
+//             }
+//         } catch (Exception e) {
+//             System.out.println(e.getMessage());
+//         }
+//     }
+// }
+
+// import java.io.FileReader;
+// import java.io.FileWriter;
+
+// public class ex2{
+//     public static void main(String[] args){
+//         try {
+//             FileReader fis = new FileReader("file1.txt");
+//             int data;
+//             FileWriter fos = new FileWriter("file2.txt");
+//             while((data = fis.read()) != -1){
+//                 fos.write(data);
+//             }
+//             fos.close();
+//             fis.close();
+//         } catch (Exception e) {
+//         System.out.println(e.getMessage());
+//         }
+//     }
+// }
+
+// import java.io.BufferedWriter;
+// import java.io.FileWriter;
+
+// public class ex3{
+//     public static void main(String[] args){
+//         try {
+//             FileWriter fw = new FileWriter("a.txt");
+//             BufferedWriter bw = new BufferedWriter(fw);
+//             bw.write("Hello, This is written using BufferedWriter");
+//             bw.close();
+//         } catch (Exception e) {
+//             System.out.println(e.getMessage());
+//         }
+//     }
+// }
+
+public class ex4{
+    public static void main(String[] args){
+        stud s = new stud(1, "Lily");
+        try {
+            // FileOutputStream fos = new FileOutputStream("a.txt");
+            // ObjectOutputStream os = new ObjectOutputStream(fos);
+            // os.writeObject(s);
+
+            FileInputStream fis = new FileInputStream("a.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            stud recover = (stud)ois.readObject();
+            System.out.println(recover.name);
+            System.out.println("Task done!");
+        } 
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+class stud implements Serializable{
+    int roll;
+    String name;
+    stud(int r, String n){
+        roll = r;
+        name = n;
+    }
+}
