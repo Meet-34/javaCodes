@@ -1,11 +1,4 @@
 
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
-
-
-
-//     public static void main(String [] args){
 //         System.out.println("Hello World" + " " + args[0] + " " + args[1]);
 //     }
 
@@ -1056,31 +1049,51 @@ non-static, inside method, container or any block
 //     }
 // }
 
-public class ex4{
-    public static void main(String[] args){
-        stud s = new stud(1, "Lily");
-        try {
-            // FileOutputStream fos = new FileOutputStream("a.txt");
-            // ObjectOutputStream os = new ObjectOutputStream(fos);
-            // os.writeObject(s);
+// public class ex4{
+//     public static void main(String[] args){
+//         stud s = new stud(1, "Lily");
+//         try {
+//             // FileOutputStream fos = new FileOutputStream("a.txt");
+//             // ObjectOutputStream os = new ObjectOutputStream(fos);
+//             // os.writeObject(s);
 
-            FileInputStream fis = new FileInputStream("a.txt");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            stud recover = (stud)ois.readObject();
-            System.out.println(recover.name);
-            System.out.println("Task done!");
-        } 
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+//             FileInputStream fis = new FileInputStream("a.txt");
+//             ObjectInputStream ois = new ObjectInputStream(fis);
+//             stud recover = (stud)ois.readObject();
+//             System.out.println(recover.name);
+//             System.out.println("Task done!");
+//         } 
+//         catch (Exception e) {
+//             System.out.println(e.getMessage());
+//         }
+//     }
+// }
+
+// class stud implements Serializable{
+//     int roll;
+//     String name;
+//     stud(int r, String n){
+//         roll = r;
+//         name = n;
+//     }
+// }
+
+//! Generic class
+public class ex5{
+    public static void main(String[] args){
+        Box<Integer> ob = new Box<>(10);
+        System.out.println(ob.get());
+        Box<String> ob1 = new Box<>("Hello");
+        System.out.println(ob1.get());
     }
 }
 
-class stud implements Serializable{
-    int roll;
-    String name;
-    stud(int r, String n){
-        roll = r;
-        name = n;
+class Box<T>{
+    T val;
+    Box(T n){
+        val = n;
+    }
+    T get(){
+        return val;
     }
 }
