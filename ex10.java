@@ -1212,21 +1212,51 @@ non-static, inside method, container or any block
 //     }
 // }
 
-//! Threads 
+// //! Threads - extending Thread class
+
+// public class ex10{
+//     public static void main(String[] args){
+//         A ob = new A();
+//         B ob2 = new B();
+//         ob.start();    
+//         ob2.start();
+//         System.out.println("Main Thread!");                                  
+//         //JVM creates one thread and that thread calls the run() method (real thread method)
+//         //If we call using the run() method, It will be a normal method call 
+//     }
+// }
+
+// class A extends Thread{
+//     public void run(){
+//         for(int i=0; i<100; ++i){
+//             System.out.println("A - " + i);
+//         }
+//     }
+// }
+
+// class B extends Thread{
+//     public void run(){
+//         for(int i=0; i<100; ++i){
+//             System.out.println("B - " + i);
+//         }
+//     }
+// }
+
+//! Threads - implementing Runnable interface 
 
 public class ex10{
     public static void main(String[] args){
         A ob = new A();
         B ob2 = new B();
-        ob.start();    
-        ob2.start();
+        Thread t1 = new Thread(ob);
+        Thread t2 = new Thread(ob2);
+        t1.start();
+        t2.start();
         System.out.println("Main Thread!");                                  
-        //JVM creates one thread and that thread calls the run() method (real thread method)
-        //If we call using the run() method, It will be a normal method call 
     }
 }
 
-class A extends Thread{
+class A implements Runnable{
     public void run(){
         for(int i=0; i<100; ++i){
             System.out.println("A - " + i);
@@ -1234,7 +1264,7 @@ class A extends Thread{
     }
 }
 
-class B extends Thread{
+class B implements Runnable{
     public void run(){
         for(int i=0; i<100; ++i){
             System.out.println("B - " + i);
