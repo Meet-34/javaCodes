@@ -1191,23 +1191,53 @@ non-static, inside method, container or any block
 
 //! Wild card - Lower 
 
+// public class ex10{
+//     static void print(Box<? super Integer> ob){
+//         System.out.println(ob.get());
+//     }
+//     public static void main(String[] args){
+//         Box<Number> ob = new Box<>(10);
+//         print(ob);
+//     }
+// }
+
+// class Box<T>{
+//     T val;
+//     Box(T n){
+//         val = n;
+//     }
+
+//     T get(){
+//         return val;
+//     }
+// }
+
+//! Threads 
+
 public class ex10{
-    static void print(Box<? super Integer> ob){
-        System.out.println(ob.get());
-    }
     public static void main(String[] args){
-        Box<Number> ob = new Box<>(10);
-        print(ob);
+        A ob = new A();
+        B ob2 = new B();
+        ob.start();    
+        ob2.start();
+        System.out.println("Main Thread!");                                  
+        //JVM creates one thread and that thread calls the run() method (real thread method)
+        //If we call using the run() method, It will be a normal method call 
     }
 }
 
-class Box<T>{
-    T val;
-    Box(T n){
-        val = n;
+class A extends Thread{
+    public void run(){
+        for(int i=0; i<100; ++i){
+            System.out.println("A - " + i);
+        }
     }
+}
 
-    T get(){
-        return val;
+class B extends Thread{
+    public void run(){
+        for(int i=0; i<100; ++i){
+            System.out.println("B - " + i);
+        }
     }
 }
