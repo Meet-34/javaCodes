@@ -1244,30 +1244,52 @@ non-static, inside method, container or any block
 
 //! Threads - implementing Runnable interface 
 
-public class ex10{
-    public static void main(String[] args){
-        A ob = new A();
-        B ob2 = new B();
-        Thread t1 = new Thread(ob);
-        Thread t2 = new Thread(ob2);
-        t1.start();
-        t2.start();
-        System.out.println("Main Thread!");                                  
-    }
-}
+// public class ex10{
+//     public static void main(String[] args){
+//         A ob = new A();
+//         B ob2 = new B();
+//         Thread t1 = new Thread(ob);
+//         Thread t2 = new Thread(ob2);
+//         t1.start();
+//         t2.start();
+//         System.out.println("Main Thread!");                                  
+//     }
+// }
 
-class A implements Runnable{
-    public void run(){
-        for(int i=0; i<100; ++i){
-            System.out.println("A - " + i);
-        }
-    }
-}
+// class A implements Runnable{
+//     public void run(){
+//         for(int i=0; i<100; ++i){
+//             System.out.println("A - " + i);
+//         }
+//     }
+// }
 
-class B implements Runnable{
-    public void run(){
-        for(int i=0; i<100; ++i){
-            System.out.println("B - " + i);
-        }
-    }
-}
+// class B implements Runnable{
+//     public void run(){
+//         for(int i=0; i<100; ++i){
+//             System.out.println("B - " + i);
+//         }
+//     }
+// }
+
+//? We can implement Runnable interface using anonymous classes or a lambda function also. 
+// public class ex10{
+//     public static void main(String[] args){
+//         Thread t1 = new Thread(()->{
+//             for(int i=0; i<10; i++){
+//                 System.out.println("A " + i );
+//             }
+//         });
+
+//         Thread t2 = new Thread(()->{
+//             for(int i=0; i<10; i++){
+//                 System.out.println("B " + i );
+//             }
+//         })
+//         t1.start();
+//         t2.start();
+//         System.out.println("Main Thread!");                                  
+//     }
+// }
+
+
