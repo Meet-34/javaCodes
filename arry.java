@@ -1294,31 +1294,128 @@ non-static, inside method, container or any block
 
 //! synchronized keyword
 
-public class gateKeeper{
-    public static void main(String[] args) throws Exception{
-        Counter c = new Counter();
-        Thread t1 = new Thread(()->{
-            for(int i=0; i<1000; i++){
-                c.increament();
-            }
-        });
+// public class gateKeeper{
+//     public static void main(String[] args) throws Exception{
+//         Counter c = new Counter();
+//         Thread t1 = new Thread(()->{
+//             for(int i=0; i<1000; i++){
+//                 c.increament();
+//             }
+//         });
 
-        Thread t2 = new Thread(()->{
-            for(int i=0; i<1000; i++){
-                c.increament();
-            }
-        });
-        t1.start();
-        t2.start();
-        t1.join();
-        t2.join();
-        System.out.println("Count: " + c.count);
-    }
-}
+//         Thread t2 = new Thread(()->{
+//             for(int i=0; i<1000; i++){
+//                 c.increament();
+//             }
+//         });
+//         t1.start();
+//         t2.start();
+//         t2.setPriority(10); 
+//         t1.join();
+//         t2.join();
+//         System.out.println("Count: " + c.count);
+//     }
+// }
 
-class Counter{
-    int count = 0;
-    synchronized void increament(){
-        count++;
+// class Counter{
+//     int count = 0;
+//     synchronized void increament(){
+//         count++;
+//     }
+// }
+
+// public class rest{
+//     public static void main(String[] args) throws Exception{
+//         Restaurant r1 = new Restaurant();
+
+//         Thread t1 = new Thread(()->{
+//             r1.createOrder();
+//         });
+
+//         Thread t2 = new Thread(()->{
+//             try{
+//                 r1.cashier();
+//             }catch(Exception e){
+//             }
+//         });
+
+//         Thread t3 = new Thread(()->{
+//             try{
+//                 r1.chef();
+//             }catch(Exception e){
+//             }
+//         });
+
+//         Thread t4 = new Thread(()->{
+//             try{
+//                 r1.eating();
+//             }catch(Exception e){
+//             }
+//         });
+
+//         t1.start();
+//         t2.start();
+//         t3.start();
+//         t4.start();
+//         t1.join();
+//         t2.join();
+//         t3.join();
+//         t4.join();
+//     }
+// }
+
+// class Restaurant{
+//     boolean available = false;
+//     boolean eaten = false;
+//     boolean order = false;
+
+//     synchronized void createOrder(){
+//         order = true;
+//         notifyAll();
+//     }
+    
+//     synchronized void eating() throws Exception{
+//         while(!available){
+//             System.out.println("Food is not prepared... Waiting");
+//             wait();
+//         }
+//         System.out.println("Eating food");
+//         eaten = true;
+//         notifyAll();
+//     }
+
+//     synchronized void cashier() throws Exception{
+//         while(!eaten){
+//             System.out.println("Not eaten...Waiting to eat");
+//             wait();
+//         }
+//         System.out.println("Bill paid");
+//     }
+
+//     synchronized void chef() throws Exception{
+//         while(!order){
+//             System.out.println("No customers...");
+//             wait();
+//         }
+//         System.out.println("Food prepared");
+//         available = true;
+//         notifyAll();
+//     }
+// }
+
+import  java.util.ArrayList;
+public class arry{
+    public static void main(String[] args) {
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(10);
+        arr.add(12);
+        arr.add(14);
+        arr.add(16);
+        arr.add(18);
+        System.out.println(arr);
+
+        for(int i=0; i<5; i++){
+            System.out.print(arr.get(i) + " ");
+        }
     }
 }
