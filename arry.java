@@ -1403,19 +1403,25 @@ non-static, inside method, container or any block
 //     }
 // }
 
-import  java.util.ArrayList;
-public class arry{
-    public static void main(String[] args) {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(10);
-        arr.add(12);
-        arr.add(14);
-        arr.add(16);
-        arr.add(18);
-        System.out.println(arr);
+// import  java.util.ArrayList;
+// public class arry{
+//     public static void main(String[] args) {
+//         ArrayList<Integer> arr = new ArrayList<>();
+//         arr.add(10);
+//         arr.add(65);
+//         arr.add(44);
+//         arr.add(9);
+//         arr.add(11);
+//         System.out.println(arr);
 
-        for(int i=0; i<5; i++){
-            System.out.print(arr.get(i) + " ");
-        }
-    }
-}
+//         //! To sort the ArrayList
+//         arr.sort((a, b) -> a - b);
+
+//         for(int i=0; i<5; i++){
+//             System.out.print(arr.get(i) + " ");
+//         }
+
+//         System.out.println();
+//         System.out.println(arr.contains(11));
+//     }
+// }
