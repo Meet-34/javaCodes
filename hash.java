@@ -1425,3 +1425,29 @@ non-static, inside method, container or any block
 //         System.out.println(arr.contains(11));
 //     }
 // }
+
+// import java.util.HashMap;
+// import java.util.Map;
+
+// public class hash {
+//     public static void main(String[] args) {
+//         HashMap<String, Integer> map = new HashMap<>();
+
+//         map.put("A", 1);
+//         map.put("B", 2);
+//         map.put("C", 3);
+
+//         // keySet
+//         for (String key : map.keySet()) {
+//             System.out.println(key + " -> " + map.get(key));
+//         }
+
+//         System.out.println("Using entrySet:");
+
+//         // entrySet
+//         for (Map.Entry<String, Integer> e : map.entrySet()) {
+//             System.out.println(e.getKey() + " -> " + e.getValue());
+//         }
+//     }
+// }
+
